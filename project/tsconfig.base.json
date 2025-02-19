@@ -1,36 +1,20 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
-    "rootDir": ".",
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
+    "composite": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": true,
     "importHelpers": true,
-    "target": "es2015",
-    "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "isolatedModules": true,
+    "lib": ["es2022"],
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
     "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@project/authentication": ["libs/user/authentication/src/index.ts"],
-      "@project/blog-models": ["libs/blog/models/src/index.ts"],
-      "@project/blog-user": ["libs/user/blog-user/src/index.ts"],
-      "@project/comments": ["libs/comments/src/index.ts"],
-      "@project/core": ["libs/shared/core/src/index.ts"],
-      "@project/data-access": ["libs/shared/data-access/src/index.ts"],
-      "@project/files-config": ["libs/files/config/src/index.ts"],
-      "@project/files-uploader": ["libs/files/uploader/src/index.ts"],
-      "@project/helpers": ["libs/shared/helpers/src/index.ts"],
-      "@project/pipes": ["libs/shared/pipes/src/index.ts"],
-      "@project/post-list": ["libs/post-list/src/index.ts"],
-      "@project/post-module": ["libs/post/post-module/src/index.ts"],
-      "@project/posts-list": ["libs/blog/posts-list/src/index.ts"],
-      "@project/publication": ["libs/publication/src/index.ts"],
-      "@project/user-config": ["libs/user/config/src/index.ts"]
-    }
-  },
-  "exclude": ["node_modules", "tmp"]
+    "strict": true,
+    "target": "es2022"
+  }
 }
