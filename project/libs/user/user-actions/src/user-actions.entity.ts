@@ -1,5 +1,7 @@
 import { Entity } from '@project/core';
+import { genSalt, hash, compare } from 'bcrypt';
 import { StorableEntity, AuthUser } from '@project/core';
+import { SALT_ROUNDS } from './user-actions.constant';
 
 export class UserActionsEntity
   extends Entity
@@ -31,5 +33,15 @@ export class UserActionsEntity
       name: this.name,
       passwordHash: this.passwordHash,
     };
+  }
+
+  public async setPassword(password: string): Promise<UserActionsEntity> {
+    const salt = await genSalt(SALT_ROUNDS);
+    this.passwordHash = await hash(password, salt);
+    return this;
+  }
+
+  public async comparePassword(password: string): Promise<boolean> {
+    return compare(password, this.passwordHash);
   }
 }
