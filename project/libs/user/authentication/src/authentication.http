@@ -4,14 +4,14 @@ Content-Type: application/json
 
 {
   "email": "user@notfound.org",
-  "name": "Keks",
+  "name": "Keks The First",
   "password": "123456"
 }
 
 ###
 
 # Get user by ID
-GET http://localhost:3000/api/auth/cc4b6652-24cf-4e5c-a20d-9c43d1e3d96c HTTP/1.1
+GET http://localhost:3000/api/auth/67b87f87c560d9fe52470622 HTTP/1.1
 
 ###
 
