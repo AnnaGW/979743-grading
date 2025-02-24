@@ -3,11 +3,17 @@ import {
   Injectable,
   NotFoundException,
   UnauthorizedException,
+  HttpException,
+  HttpStatus,
+  Logger,
 } from '@nestjs/common';
 import {
   UserActionsRepository,
   UserActionsEntity,
 } from '@project/user-actions';
+import { JwtService } from '@nestjs/jwt';
+
+import { Token, TokenPayload, User } from '@project/core';
 import { CreateUserDto } from './dto/create-user.dto';
 import { LoginUserDto } from './dto/login-user.dto';
 import {
@@ -18,7 +24,11 @@ import {
 
 @Injectable()
 export class AuthenticationService {
-  constructor(private readonly userActionsRepository: UserActionsRepository) {}
+  private readonly logger = new Logger(AuthenticationService.name);
+  constructor(
+    private readonly userActionsRepository: UserActionsRepository,
+    private readonly jwtService: JwtService
+  ) {}
 
   public async register(dto: CreateUserDto): Promise<UserActionsEntity> {
     const { email, name, password } = dto;
@@ -64,5 +74,24 @@ export class AuthenticationService {
     }
 
     return user;
+  }
+
+  public async createUserToken(user: User): Promise<Token> {
+    const payload: TokenPayload = {
+      sub: user.id,
+      email: user.email,
+      name: user.name,
+    };
+
+    try {
+      const accessToken = await this.jwtService.signAsync(payload);
+      return { accessToken };
+    } catch (error) {
+      this.logger.error('[Token generation error]: ' + error.message);
+      throw new HttpException(
+        'Ошибка при создании токена.',
+        HttpStatus.INTERNAL_SERVER_ERROR
+      );
+    }
   }
 }

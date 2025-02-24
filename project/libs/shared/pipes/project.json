@@ -1,0 +1,20 @@
+{
+  "name": "pipes",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/pipes/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/pipes",
+        "tsConfig": "libs/shared/pipes/tsconfig.lib.json",
+        "packageJson": "libs/shared/pipes/package.json",
+        "main": "libs/shared/pipes/src/index.ts",
+        "assets": ["libs/shared/pipes/*.md"]
+      }
+    }
+  }
+}

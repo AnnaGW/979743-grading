@@ -12,7 +12,7 @@ export enum AuthorizationStatus {
   Unknown = 'UNKNOWN',
 }
 
-export const BASE_URL = 'http://localhost:3000/api';
+export const BASE_URL = 'http://localhost:3000/api'; //TODO: порт передать через переменные окружения
 
 export const REQUEST_TIMEOUT = 5000;
 
@@ -28,7 +28,6 @@ export enum NameSpace {
 }
 
 export enum APIRoute {
-  Login = '/login',
-  // Logout = '/logout',
-  Registration = '/registration',
+  Login = 'auth/login',
+  Registration = 'auth/register',
 }

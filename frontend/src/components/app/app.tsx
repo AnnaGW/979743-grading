@@ -10,21 +10,21 @@ function App(): JSX.Element {
   return (
     <HelmetProvider>
       <BrowserRouter>
-      <Routes>
-        <Route
-          path={AppRoute.Login}
-          element={<Login />}
-        />
-        <Route
-          path={AppRoute.Registration}
-          element={<Registration />}
-        />
-        <Route
-          path={AppRoute.ProductList}
-          element={<ProductList />}
-        />
-      </Routes>
-    </BrowserRouter>
+        <Routes>
+          <Route
+            path={AppRoute.Login}
+            element={<Login />}
+          />
+          <Route
+            path={AppRoute.Registration}
+            element={<Registration />}
+          />
+          <Route
+            path={AppRoute.ProductList}
+            element={<ProductList />}
+          />
+        </Routes>
+      </BrowserRouter>
     </HelmetProvider>
 
   )

@@ -11,8 +11,8 @@ Content-Type: application/json
 ###
 
 # Get user by ID
-GET http://localhost:3000/api/auth/67b87f87c560d9fe52470622 HTTP/1.1
-
+GET http://localhost:3000/api/auth/67bb1ab5d811a8f1cafe0408 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2N2JiMWFiNWQ4MTFhOGYxY2FmZTA0MDgiLCJlbWFpbCI6Im11c3lhQHVzZXIub3JnIiwibmFtZSI6Ik11c3lhIiwiaWF0IjoxNzQwMzM5OTIxLCJleHAiOjE3NDAzNDAyMjF9.SU1XgRQcmCz_DX1cnEOOTlvt8riobYndwAqKxoHd1QI
 ###
 
 # Login user by email and password
@@ -20,8 +20,8 @@ POST http://localhost:3000/api/auth/login HTTP/1.1
 Content-Type: application/json
 
 {
-  "email": "user@notfound.local",
-  "password": "123456"
+  "email": "musya@user.org",
+  "password": "654987"
 }
 
 ###

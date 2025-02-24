@@ -15,7 +15,7 @@ export const checkAuthAction = createAsyncThunk<
     state: State;
     extra: AxiosInstance;
   }
->('user/checkAuth', async (_arg, { extra: api }) => {
+>('auth/checkAuth', async (_arg, { extra: api }) => {
   const { data } = await api.get<TUserData>(APIRoute.Login);
   return data;
 });
@@ -34,5 +34,6 @@ export const loginAction = createAsyncThunk<
     password,
   });
   saveToken(data.token);
+  console.log('data = ', data);
   return data;
 });
